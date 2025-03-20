@@ -67,14 +67,19 @@ function App() {
   };
 
   return (
-    <Container maxWidth="lg">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
+    <Container maxWidth="lg" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box sx={{ my: 4, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Typography variant="h4" component="h1" gutterBottom align="center">
           Newmark-β Method Solver
         </Typography>
         
-        <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
-          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 2 }}>
+        <Paper elevation={3} sx={{ p: 3, mb: 3, width: '100%', maxWidth: '800px' }}>
+          <Box sx={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+            gap: 2,
+            justifyContent: 'center'
+          }}>
             <TextField
               label="Mass (kg)"
               name="mass"
@@ -150,20 +155,20 @@ function App() {
           </Box>
           
           <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" onClick={newmarkBeta}>
+            <Button variant="contained" onClick={newmarkBeta} size="large">
               Solve
             </Button>
           </Box>
         </Paper>
 
         {results.length > 0 && (
-          <Paper elevation={3} sx={{ p: 3 }}>
-            <Typography variant="h6" gutterBottom>
+          <Paper elevation={3} sx={{ p: 3, width: '100%', maxWidth: '800px' }}>
+            <Typography variant="h6" gutterBottom align="center">
               Results
             </Typography>
-            <Box sx={{ width: '100%', height: 400 }}>
+            <Box sx={{ width: '100%', height: 400, display: 'flex', justifyContent: 'center' }}>
               <LineChart
-                width={800}
+                width={750}
                 height={400}
                 data={results}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
